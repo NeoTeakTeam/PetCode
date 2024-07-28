@@ -5,7 +5,12 @@ import json
 import sys
 import io
 import shutil as sl
-from . import (listque, loadque, initque, checkque, showans)
+
+import listque
+import loadque
+import initque
+import checkque
+import showans
 
 
 class App:
@@ -78,7 +83,7 @@ class App:
             index   : str    # Index (Like q000001)
             ansindex: str    # Output file (Like a00)
         """
-        
+
         showans.showans(basic=basic, index=index, ansindex=ansindex)
 
 
