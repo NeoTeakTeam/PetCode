@@ -24,6 +24,9 @@ class App:
         pass
 
     def listque(self):
+        """
+        List Que at ../assets/index
+        """
 
         with open("../assets/index/que.json", mode="r", encoding="utf-8") as f:
             info: list[dict] = json.loads(f.read())
@@ -37,6 +40,13 @@ class App:
                 print("------------")
 
     def loadque(self, basic: str, index: str):
+        """
+        Load Que at ../assets/que
+
+        Args:
+            basic: str   # Index (Like q00)
+            index: str   # Index (Like q000001)
+        """
 
         with open(f"../assets/que/{basic}/{index}/info.json", mode="r", encoding="utf-8") as f:
             info: dict = json.loads(f.read())
@@ -52,10 +62,28 @@ class App:
             print("------------")
 
     def initque(self, basic: str, index: str, output: str):
+        """
+        Init Que
+        Copy Que's source file to output
+
+        Arhs:
+            basic : str    # Index (Like q00)
+            index : str    # Index (Like q000001)
+            output: str    # Output file (Like a.py)
+        """
         # 复制 源文件 到 输出文件
         sl.copyfile(f"../assets/que/{basic}/{index}/temp.py", output)
 
     def checkque(self, basic: str, index: str, ansfile: str):
+        """
+        Check Que
+        Real Answer?
+
+        Args:
+            basic  : str    # Index (Like q00)
+            index  : str    # Index (Like q000001)
+            ansfile: str    # Output file (Like a.py)
+        """
 
         print("Check Que")
         print(f"Index      : {basic} / {index}")
@@ -74,7 +102,7 @@ class App:
                 sout.append(i[1])   # 添加函数输出
 
             check_func = info["check_func"]  # 添加函数名称
-            
+
         lower_mode: bool = info["lower_mode"]
 
         result: bool = False  # 定义 result
@@ -128,6 +156,16 @@ class App:
             print(f"    Real Out  : {str(func_io.getvalue()).strip()}")
 
     def showans(self, basic: str, index: str, ansindex: str):
+        """
+        Show Ans
+        cat.exe Que's answer (bushi)
+
+        Ars:
+            basic   : str    # Index (Like q00)
+            index   : str    # Index (Like q000001)
+            ansindex: str    # Output file (Like a00)
+        """
+
         with open(f"../assets/que/{basic}/{index}/ans/{ansindex}.py", mode="r", encoding="utf-8") as f:
             print("Ans Show")
             print("------------")
