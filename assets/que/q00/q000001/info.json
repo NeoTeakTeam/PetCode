@@ -1,0 +1,11 @@
+{
+    "name": "Hello, world!",
+    "author": "AImixAE",
+    "info": "这是你人生的第一个程序吧",
+
+    "desc": ["输出 \"Hello, world!\""],
+
+    "check": [[["Noarg"], "Hello, world!"]],
+    "check_func": "helloworld",
+    "lower_mode": true
+}

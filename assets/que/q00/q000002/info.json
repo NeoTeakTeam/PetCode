@@ -1,0 +1,13 @@
+{
+    "name": "What's your name?",
+    "author": "AImixAE",
+    "info": "你的名字是什么",
+
+    "desc": ["询问名字并且输出 \"Hello, (名字)!\""],
+
+    "check": [
+        ["AImixAE", "Hello, AImixAE!"],
+        ["Me", "Hello, Me!"],
+        ["Jack", "Hello, Jack!"]
+    ]
+}
