@@ -6,5 +6,13 @@
         "name": "Hello, world!",
         "author": "AImixAE",
         "info": "这是你人生的第一个程序吧"
+    },
+    {
+        "basic": "00",
+        "index": "000002",
+
+        "name": "What's your name?",
+        "author": "AImixAE",
+        "info": "你的名字叫啥啊"
     }
 ]

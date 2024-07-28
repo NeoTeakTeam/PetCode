@@ -1,0 +1,23 @@
+{
+    "name": "What's your name?",
+    "author": "AImixAE",
+    "info": "你的名字叫啥啊",
+
+    "desc": [
+        "询问名字并且输出\"Hi, (名字)!\"",
+        "程序输入 name: str",
+        "程序输出 \"Hi, (名字)!\""
+    ],
+
+    "ans": ["a01"],
+
+    "check": [
+        [["\"Mike\""], "Hi, Mike!"],
+        [["\"Jack\""], "Hi, Jack!"],
+        [["\"AImixAE\""], "Hi, AImixAE!"],
+        [["\"Manboo~\""], "Hi, Manboo~!"],
+        [["\"Kobi\""], "Hi, Kobi!"]
+    ],
+    "check_func": "yourname",
+    "lower_mode": true
+}

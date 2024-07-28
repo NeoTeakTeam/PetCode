@@ -5,7 +5,7 @@
 
     "desc": ["输出 \"Hello, world!\""],
 
-    "ans": ["a00"],
+    "ans": ["a01"],
 
     "check": [[["Noarg"], "Hello, world!"]],
     "check_func": "helloworld",

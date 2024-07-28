@@ -1,3 +1,2 @@
-class Program:
-    def helloworld(self):
-        print("Hello, world!")
+def helloworld():
+    print("Hello, world!")
