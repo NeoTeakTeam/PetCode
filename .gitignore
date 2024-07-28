@@ -7,4 +7,5 @@ venv
 **/main.build
 **/main.onefile-build
 **/nuitka-crash-report.xml
+
 target/*

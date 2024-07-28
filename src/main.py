@@ -35,7 +35,7 @@ class App:
         List Que at assets/index
         """
 
-        listque()
+        listque(assets_path=PetCodeAssetsPath)
 
     def listans(self, basic: str, index: str, assets_path=PetCodeAssetsPath):
         """
