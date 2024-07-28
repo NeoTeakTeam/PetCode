@@ -9,6 +9,7 @@ loadque = __import__("loadque").loadque
 copyque = __import__("initque").copyque
 checkque = __import__("checkque").checkque
 showans = __import__("showans").showans
+realque = __import__("realque").petrealque
 
 
 PetCodeAssetsPath = os.getenv("PetCodeAssetsPath") or "../assets"
@@ -30,7 +31,7 @@ class App(object):
     def __init__(self, assets_path: str = PetCodeAssetsPath):
         self.assets = assets_path
 
-    def listque(self, pages: int = 1, group_size: int = 5):
+    def listque(self, pages: int = 1, group_size: int = 20):
         """
         List Que at assets/index
         """
@@ -47,6 +48,8 @@ class App(object):
             index: str   # Index (Like q000001)
         """
 
+        realque(basic=basic, index=index, assets_path=self.assets)
+
         listans(basic=basic, index=index, assets_path=self.assets)
 
     def loadque(self, basic: str, index: str):
@@ -57,6 +60,8 @@ class App(object):
             basic: str   # Index (Like q00)
             index: str   # Index (Like q000001)
         """
+
+        realque(basic=basic, index=index, assets_path=self.assets)
 
         loadque(basic=basic, index=index, assets_path=self.assets)
 
@@ -70,6 +75,8 @@ class App(object):
             index : str    # Index (Like q000001)
             output: str    # Output file (Like a.py)
         """
+
+        realque(basic=basic, index=index, assets_path=self.assets)
 
         copyque(basic=basic, index=index,
                 output=output, assets_path=self.assets)
@@ -85,6 +92,8 @@ class App(object):
             ansfile: str    # Output file (Like a.py)
         """
 
+        realque(basic=basic, index=index, assets_path=self.assets)
+
         checkque(basic=basic, index=index,
                  ansfile=ansfile, assets_path=self.assets)
 
@@ -98,6 +107,8 @@ class App(object):
             index   : str    # Index (Like q000001)
             ansindex: str    # Output file (Like a00)
         """
+
+        realque(basic=basic, index=index, assets_path=self.assets)
 
         showans(basic=basic, index=index,
                 ansindex=ansindex, assets_path=self.assets)
