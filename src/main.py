@@ -7,6 +7,7 @@ import io
 import shutil as sl
 
 import listque
+import listans
 import loadque
 import initque
 import checkque
@@ -35,6 +36,17 @@ class App:
         """
 
         listque.listque()
+
+    def listans(self, basic: str, index: str):
+        """
+        List Ans at Que
+
+        Args:
+            basic: str   # Index (Like q00)
+            index: str   # Index (Like q000001)
+        """
+        
+        listans.listans(basic=basic, index=index)
 
     def loadque(self, basic: str, index: str):
         """

@@ -1,6 +1,7 @@
 import json
 import io
 import sys
+import time
 
 
 def checkque(basic: str, index: str, ansfile: str):
@@ -25,6 +26,7 @@ def checkque(basic: str, index: str, ansfile: str):
     lower_mode: bool = info["lower_mode"]
 
     result: list[bool] = []  # 定义 result
+    times : list[float] = [] # 定义用时时间
 
     func_in, func_out = "", ""  # 定义第一次执行的函数输入 预期输出
 
@@ -36,25 +38,29 @@ def checkque(basic: str, index: str, ansfile: str):
             if ik == "Noarg":  # 如果ik是Noarg, 那么就是不用输入参数
                 continue  # 继续下一个, 防止大聪明
 
-            func_in += ik + ", "  # 添加单次函数输入 用, 是为了处理更多参数
+            func_in += str(ik) + ", "  # 添加单次函数输入 用, 是为了处理更多参数
         func_out = v  # 处理预期输出
 
         with open(ansfile, mode="r", encoding="utf-8") as f:
             func_io = io.StringIO()  # 创建新io 为了处理输出
             sys.stdout = func_io  # 切换io
+            l1 = time.time()
             exec(f"{f.read()}\n{check_func}({func_in})")  # 执行函数
+            l2 = time.time()
             sys.stdout = sys.__stdout__  # 切换原来的io
+
+            times.append(l2 - l1)
 
             res_left = ""
             res_right = ""
 
             if lower_mode:    # 如果开启非大小写检测
                 res_left = str(func_io.getvalue()).strip().lower()  # 转为小写
-                res_right = func_out.lower()
+                res_right = str(func_out).lower()
 
             else:
                 res_left = str(func_io.getvalue()).strip()
-                res_right = func_out
+                res_right = str(func_out)
 
             nowres: bool = res_left == res_right
             result.append(nowres)
@@ -74,4 +80,5 @@ def checkque(basic: str, index: str, ansfile: str):
     if not False in result:
         print("Pass")
         print("------------")
+        print(f"Usage Time: {sum(times) / len(times)}")
         print("Yes!")
