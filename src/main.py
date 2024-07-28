@@ -14,7 +14,7 @@ showans = __import__("showans").showans
 PetCodeAssetsPath = os.getenv("PetCodeAssetsPath") or "../assets"
 
 
-class App:
+class App(object):
     """
     Pet Code
     - A simple program for practicing coding -
@@ -27,17 +27,18 @@ class App:
     a(index)
     """
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, assets_path: str = PetCodeAssetsPath):
+        self.assets = assets_path
 
-    def listque(self):
+    def listque(self, pages: int = 1, group_size: int = 5):
         """
         List Que at assets/index
         """
 
-        listque(assets_path=PetCodeAssetsPath)
+        listque(pages=pages, group_size=group_size,
+                assets_path=self.assets)
 
-    def listans(self, basic: str, index: str, assets_path=PetCodeAssetsPath):
+    def listans(self, basic: str, index: str):
         """
         List Ans at Que
 
@@ -46,9 +47,9 @@ class App:
             index: str   # Index (Like q000001)
         """
 
-        listans(basic=basic, index=index, assets_path=assets_path)
+        listans(basic=basic, index=index, assets_path=self.assets)
 
-    def loadque(self, basic: str, index: str, assets_path=PetCodeAssetsPath):
+    def loadque(self, basic: str, index: str):
         """
         Load Que at assets/que
 
@@ -57,9 +58,9 @@ class App:
             index: str   # Index (Like q000001)
         """
 
-        loadque(basic=basic, index=index, assets_path=assets_path)
+        loadque(basic=basic, index=index, assets_path=self.assets)
 
-    def initque(self, basic: str, index: str, output: str, assets_path=PetCodeAssetsPath):
+    def initque(self, basic: str, index: str, output: str):
         """
         Init Que
         Copy Que's source file to output
@@ -71,9 +72,9 @@ class App:
         """
 
         copyque(basic=basic, index=index,
-                output=output, assets_path=assets_path)
+                output=output, assets_path=self.assets)
 
-    def checkque(self, basic: str, index: str, ansfile: str, assets_path=PetCodeAssetsPath):
+    def checkque(self, basic: str, index: str, ansfile: str):
         """
         Check Que
         Real Answer?
@@ -85,9 +86,9 @@ class App:
         """
 
         checkque(basic=basic, index=index,
-                 ansfile=ansfile, assets_path=assets_path)
+                 ansfile=ansfile, assets_path=self.assets)
 
-    def showans(self, basic: str, index: str, ansindex: str, assets_path=PetCodeAssetsPath):
+    def showans(self, basic: str, index: str, ansindex: str):
         """
         Show Ans
         cat.exe Que's answer (bushi)
@@ -99,7 +100,7 @@ class App:
         """
 
         showans(basic=basic, index=index,
-                ansindex=ansindex, assets_path=assets_path)
+                ansindex=ansindex, assets_path=self.assets)
 
 
 if __name__ == "__main__":
