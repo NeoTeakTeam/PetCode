@@ -10,6 +10,7 @@ copyque = __import__("initque").copyque
 checkque = __import__("checkque").checkque
 showans = __import__("showans").showans
 realque = __import__("realque").petrealque
+realans = __import__("realans").petrealans
 
 
 PetCodeAssetsPath = os.getenv("PetCodeAssetsPath") or "../assets"
@@ -109,6 +110,8 @@ class App(object):
         """
 
         realque(basic=basic, index=index, assets_path=self.assets)
+        realans(basic=basic, index=index,
+                ansindex=ansindex, assets_path=self.assets)
 
         showans(basic=basic, index=index,
                 ansindex=ansindex, assets_path=self.assets)
