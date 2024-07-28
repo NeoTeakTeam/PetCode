@@ -67,8 +67,6 @@ def checkque(basic: str, index: str, ansfile: str):
                 print(f"    Want Out  : {func_out}")
                 print(f"    Real Out  : {str(func_io.getvalue()).strip()}")
 
-                func_in, func_out = "", ""
-
                 break
 
         func_in, func_out = "", ""
