@@ -3,3 +3,8 @@ venv
 .vscode
 .idea
 
+**/main.dist
+**/main.build
+**/main.onefile-build
+**/nuitka-crash-report.xml
+target/*

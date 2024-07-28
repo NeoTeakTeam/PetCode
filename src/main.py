@@ -1,17 +1,17 @@
 #!python3
 
 from fire import Fire as fire
-import json
-import sys
-import io
-import shutil as sl
+import os
 
-import listque
-import listans
-import loadque
-import initque
-import checkque
-import showans
+listque = __import__("listque").listque
+listans = __import__("listans").listans
+loadque = __import__("loadque").loadque
+copyque = __import__("initque").copyque
+checkque = __import__("checkque").checkque
+showans = __import__("showans").showans
+
+
+PetCodeAssetsPath = os.getenv("PetCodeAssetsPath") or "../assets"
 
 
 class App:
@@ -32,12 +32,12 @@ class App:
 
     def listque(self):
         """
-        List Que at ../assets/index
+        List Que at assets/index
         """
 
-        listque.listque()
+        listque()
 
-    def listans(self, basic: str, index: str):
+    def listans(self, basic: str, index: str, assets_path=PetCodeAssetsPath):
         """
         List Ans at Que
 
@@ -45,21 +45,21 @@ class App:
             basic: str   # Index (Like q00)
             index: str   # Index (Like q000001)
         """
-        
-        listans.listans(basic=basic, index=index)
 
-    def loadque(self, basic: str, index: str):
+        listans(basic=basic, index=index, assets_path=assets_path)
+
+    def loadque(self, basic: str, index: str, assets_path=PetCodeAssetsPath):
         """
-        Load Que at ../assets/que
+        Load Que at assets/que
 
         Args:
             basic: str   # Index (Like q00)
             index: str   # Index (Like q000001)
         """
 
-        loadque.loadque(basic=basic, index=index)
+        loadque(basic=basic, index=index, assets_path=assets_path)
 
-    def initque(self, basic: str, index: str, output: str):
+    def initque(self, basic: str, index: str, output: str, assets_path=PetCodeAssetsPath):
         """
         Init Que
         Copy Que's source file to output
@@ -70,9 +70,10 @@ class App:
             output: str    # Output file (Like a.py)
         """
 
-        initque.copyque(basic=basic, index=index, output=output)
+        copyque(basic=basic, index=index,
+                output=output, assets_path=assets_path)
 
-    def checkque(self, basic: str, index: str, ansfile: str):
+    def checkque(self, basic: str, index: str, ansfile: str, assets_path=PetCodeAssetsPath):
         """
         Check Que
         Real Answer?
@@ -83,9 +84,10 @@ class App:
             ansfile: str    # Output file (Like a.py)
         """
 
-        checkque.checkque(basic=basic, index=index, ansfile=ansfile)
+        checkque(basic=basic, index=index,
+                 ansfile=ansfile, assets_path=assets_path)
 
-    def showans(self, basic: str, index: str, ansindex: str):
+    def showans(self, basic: str, index: str, ansindex: str, assets_path=PetCodeAssetsPath):
         """
         Show Ans
         cat.exe Que's answer (bushi)
@@ -96,7 +98,8 @@ class App:
             ansindex: str    # Output file (Like a00)
         """
 
-        showans.showans(basic=basic, index=index, ansindex=ansindex)
+        showans(basic=basic, index=index,
+                ansindex=ansindex, assets_path=assets_path)
 
 
 if __name__ == "__main__":

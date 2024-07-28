@@ -4,7 +4,7 @@ import sys
 import time
 
 
-def checkque(basic: str, index: str, ansfile: str):
+def checkque(basic: str, index: str, ansfile: str, assets_path="../assets"):
     print("Check Que")
     print(f"Index      : {basic} / {index}")
     print(f"Input File : {ansfile}")
@@ -15,7 +15,7 @@ def checkque(basic: str, index: str, ansfile: str):
     sin, sout = [], []  # 处理函数输入 预期输出
     check_func = ""    # 处理函数名称
 
-    with open(f"../assets/que/{basic}/{index}/info.json", mode="r", encoding="utf-8") as f:
+    with open(f"{assets_path}/que/{basic}/{index}/info.json", mode="r", encoding="utf-8") as f:
         info: dict = json.loads(f.read())
         for i in info["check"]:  # 加载check的列表
             sin.append(i[0])    # 添加函数输入
@@ -26,7 +26,7 @@ def checkque(basic: str, index: str, ansfile: str):
     lower_mode: bool = info["lower_mode"]
 
     result: list[bool] = []  # 定义 result
-    times : list[float] = [] # 定义用时时间
+    times: list[float] = []  # 定义用时时间
 
     func_in, func_out = "", ""  # 定义第一次执行的函数输入 预期输出
 

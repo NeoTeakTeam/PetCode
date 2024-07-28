@@ -1,8 +1,8 @@
 import json
 
 
-def listque():
-    with open("../assets/index/que.json", mode="r", encoding="utf-8") as f:
+def listque(assets_path="../assets"):
+    with open(f"{assets_path}/index/que.json", mode="r", encoding="utf-8") as f:
         info: list[dict] = json.loads(f.read())
         print("List Que:")
         print("------------")
