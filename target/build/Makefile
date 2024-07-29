@@ -6,11 +6,10 @@ TARGET    := Windows
 VERSION   := debug
 
 SRC       := ../../src
-OUTPUT    := ../$(TARGET)/$(VERSION)
+OUTPUT    := $(TARGET)/$(VERSION)
 
 
 build: $(SRC)/main.py
-	@mkdir $(OUTPUT)
 	@echo "[ 01 ] PY     $(SRC)/main.py"
 	@python -m nuitka --lto=no --onefile --standalone --output-dir="$(OUTPUT)" $(LIBFLAGS) "$(SRC)/main.py"
 

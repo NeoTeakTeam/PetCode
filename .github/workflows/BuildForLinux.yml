@@ -1,4 +1,4 @@
-name: Build
+name: BuildForLinux
 
 on:
     push:
@@ -34,5 +34,4 @@ jobs:
 
             - name: Build project
               run: |
-                  cd target/build
-                  make VERSION=release build
+                  cd target/build; make VERSION=release TARGET=Linux build
