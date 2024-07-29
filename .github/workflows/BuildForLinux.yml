@@ -1,4 +1,4 @@
-name: BuildForWindws
+name: Build
 
 on:
     push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
     build:
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
 
         steps:
             - name: Checkout code
@@ -25,13 +25,7 @@ jobs:
               run: python -m ensurepip --upgrade
 
             - name: Install make
-              run: |
-                  choco install make
-
-            - name: Refresh environment variables
-              run: |
-                  Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
-                  refreshenv
+              run: sudo apt-get update && sudo apt-get install -y make
 
             - name: Install required libraries
               run: |
@@ -40,4 +34,5 @@ jobs:
 
             - name: Build project
               run: |
-                  cd target/build; make VERSION=release build
+                  cd target/build
+                  make VERSION=release build
