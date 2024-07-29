@@ -27,6 +27,10 @@ jobs:
     - name: Install make
       run: |
         choco install make
+
+    - name: Refresh environment variables
+      run: |
+        Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
         refreshenv
 
     - name: Install required libraries
