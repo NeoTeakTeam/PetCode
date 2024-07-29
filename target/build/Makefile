@@ -20,8 +20,8 @@ ifeq ($(TARGET),Windows)
 	@mv $(OUTPUT)/main.exe $(OUTPUT)/petcode.exe
 else
 ifeq ($(TARGET),Linux)
-	@echo "[ 02 ] MV $(OUTPUT)/main"
-	@mv $(OUTPUT)/main $(OUTPUT)/petcode
+	@echo "[ 02 ] MV $(OUTPUT)/main.bin"
+	@mv $(OUTPUT)/main.bin $(OUTPUT)/petcode
 else
 	@echo "Error! Unsupported system"
 	@exit 2
