@@ -8,4 +8,5 @@ venv
 **/main.onefile-build
 **/nuitka-crash-report.xml
 
-target/*
+**/debug/*
+**/release/*
