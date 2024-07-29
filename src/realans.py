@@ -1,4 +1,5 @@
 import json
+import sys
 
 
 def realans(basic: str, index: str, ansindex: str, assets_path="../assets"):
@@ -14,4 +15,4 @@ def realans(basic: str, index: str, ansindex: str, assets_path="../assets"):
 def petrealans(basic: str, index: str, ansindex: str, assets_path="../assets"):
     if not realans(basic=basic, index=index, ansindex=ansindex, assets_path=assets_path):
         print("Error! Ans Index Not In Anses!")
-        exit(2)
+        sys.exit(2)

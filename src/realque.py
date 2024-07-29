@@ -1,4 +1,5 @@
 import json
+import sys
 
 
 def realque(basic: str, index: str, assets_path="../assets"):
@@ -15,4 +16,4 @@ def realque(basic: str, index: str, assets_path="../assets"):
 def petrealque(basic: str, index: str, assets_path="../assets"):
     if not realque(basic=basic, index=index, assets_path=assets_path):
         print(f"Error! {basic} / {index} Not In Ques!")
-        exit(2)
+        sys.exit(2)
