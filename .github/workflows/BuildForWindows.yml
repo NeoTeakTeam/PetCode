@@ -33,11 +33,6 @@ jobs:
                   Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
                   refreshenv
 
-            - name: Make Release Dir
-              run: |
-                  cd target
-                  mkdir release
-
             - name: Install required libraries
               run: |
                   python -m pip install --upgrade pip

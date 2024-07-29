@@ -9,7 +9,8 @@ SRC       := ../../src
 OUTPUT    := ../$(TARGET)/$(VERSION)
 
 
-build: $(SRC)/main.py $(OUTPUT)
+build: $(SRC)/main.py
+	@mkdir $(OUTPUT)
 	@echo "[ 01 ] PY     $(SRC)/main.py"
 	@python -m nuitka --lto=no --onefile --standalone --output-dir="$(OUTPUT)" $(LIBFLAGS) "$(SRC)/main.py"
 
@@ -36,7 +37,8 @@ else
 endif
 
 
-install: $(OUTPUT)
+install:
+	@mkdir $(OUTPUT)
 ifeq ($(VERSION),release)
 ifeq ($(TARGET),Linux)
 	@echo "[ 01 ] MV $(OUTPUT)/petcode"
