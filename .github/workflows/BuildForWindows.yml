@@ -1,0 +1,40 @@
+name: BuildForWindws
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install pip
+      run: python -m ensurepip --upgrade
+
+    - name: Install make
+      run: |
+        choco install make
+        refreshenv
+
+    - name: Install required libraries
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r target/Python/needlibs.txt
+
+    - name: Build project
+      run: |
+        cd target/build
+        make VERSION=release build
